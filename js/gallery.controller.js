@@ -1,24 +1,9 @@
 'use strict'
 
-let gElCanvas;
-let gCtx;
-
 function onInit() {
     loadImages()
-    
-    gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
-    /* TODO: hide canvas */
-
-    // onResize()
+    initCanvas()
 }
-
-// function onResize() {
-//     const elContainer = document.querySelector('.canvas-container')
-    
-//     gElCanvas.width = elContainer.offsetWidth
-//     gElCanvas.height = elContainer.offsetHeight
-// }
 
 function loadImages() {
     const elGallery = document.querySelector('.gallery')

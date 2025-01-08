@@ -17,7 +17,18 @@
         </div>
         
         <div class="text-editor">
-            <input oninput="onMemeTextChange(this)" type="text" placeholder="Add text here">
+            <input class="text-input" oninput="onMemeTextChange(this)" type="text" placeholder="Add text here">
+
+            <div class="text-colors">
+                <input class="text-border-color"  oninput="onChangeColorBorder(this)" type="color" value="#ffffff">
+                <input class="text-filling-color" oninput="onChangeColorFilling(this)"  type="color" value="#000000">
+            </div>
+            
+            <div class="font-size-buttons">
+                <button class="font-size increase" onclick="(onFontSizeIncrease())">A+</button>
+                <button class="font-size decrease" onclick="(onFontSizeDecrease())">A-</button>
+            </div>
+
         </div>
     </div>
 
@@ -26,5 +37,6 @@
 
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/canvas.service.js"></script>
 </body>
 </html>

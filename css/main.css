@@ -43,7 +43,14 @@ canvas {
     grid-template-columns: 2;
 }
 .text-editor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background-color: var(--secondary-bg-color);
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding-top: 20px;
+    flex-direction: column;
+    background-color: var(--secondary-bg-color);
 }
