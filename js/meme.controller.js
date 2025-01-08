@@ -25,6 +25,12 @@ function onFontSizeDecrease() {
     renderCanvas()
 }
 
+function onDownloadCanvas(elLink) {
+    const dataUrl = gElCanvas.toDataURL()
+    elLink.href = dataUrl
+    elLink.download = 'Ma Meme'
+}
+
 // function onResize() {
 //     const elContainer = document.querySelector('.canvas-container')
     

@@ -54,3 +54,11 @@ canvas {
     flex-direction: column;
     background-color: var(--secondary-bg-color);
 }
+.download-button {
+    border-radius: 15em;
+    background-color: purple;
+}
+.download {
+    text-decoration: none;
+    color: #fff;
+}
