@@ -39,7 +39,12 @@ function renderCanvas() {
     const elImg = new Image();
     elImg.src = gCurrImg; 
     elImg.onload = () => {
+
+        gElCanvas.width = gElCanvas.clientWidth;
+        gElCanvas.height = gElCanvas.clientWidth * (elImg.height / elImg.width);
+        
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+        
         reRenderCanvasText()
     };
 }
