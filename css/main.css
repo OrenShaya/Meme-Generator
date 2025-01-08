@@ -43,5 +43,7 @@ canvas {
     grid-template-columns: 2;
 }
 .text-editor {
+    text-align: center;
     background-color: var(--secondary-bg-color);
+    padding-top: 20px;
 }
