@@ -29,7 +29,6 @@ function loadImages() {
 }
 
 function onImgClick(elImg) {
-    console.log('clicked on image', elImg.src);
-
+    gCurrImg = elImg.src
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 }
