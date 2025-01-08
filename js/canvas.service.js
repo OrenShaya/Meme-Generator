@@ -35,6 +35,7 @@ function reRenderCanvasText() {
 }
 
 function renderCanvas() {
+    if (gCurrImg === '') return reRenderCanvasText()
     const elImg = new Image();
     elImg.src = gCurrImg; 
     elImg.onload = () => {

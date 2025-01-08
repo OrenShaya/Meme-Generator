@@ -1,6 +1,8 @@
 'use strict'
 
 function onChangeColorFilling(elTextFillColor) {
+    document.querySelector('.text-filling-color').click()
+
     gFontOptions.fillColor = elTextFillColor.value
     renderCanvas()
 }

@@ -62,3 +62,37 @@ canvas {
     text-decoration: none;
     color: #fff;
 }
+.text-filling-color-img {
+    width: 20px;
+}
+.text-border-color-img {
+    width: 20px;
+}
+.text-filling-color {
+    display: none;
+    opacity: 0;
+}
+.text-border-color {
+    display: none;
+    opacity: 0;
+}
+.text-border-color-label {
+    position: relative; 
+    display: inline-block; 
+}
+.text-border-color-label:hover .text-border-color {
+    display: block;
+    position: absolute; 
+    top: 0%; 
+}
+.text-filling-color-label {
+    position: relative; 
+    display: inline-block; 
+}
+.text-filling-color-label:hover .text-filling-color {
+    display: block;
+    position: absolute; 
+    top: 0%; 
+}
+
+

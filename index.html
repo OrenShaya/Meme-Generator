@@ -20,8 +20,18 @@
             <input class="text-input" oninput="onMemeTextChange(this)" type="text" placeholder="Add text here">
 
             <div class="text-colors">
-                <input class="text-border-color"  oninput="onChangeColorBorder(this)" type="color" value="#ffffff">
-                <input class="text-filling-color" oninput="onChangeColorFilling(this)"  type="color" value="#000000">
+                
+                
+                <label class="text-border-color-label" for="text-border-color">
+                    <img class="text-border-color-img" onclick="onChangeColorBorder(this)" src="images/paint-brush.png" alt="change border color">
+                    <input class="text-border-color" oninput="onChangeColorBorder(this)" type="color" value="#ffffff">
+                </label>
+
+                <label class="text-filling-color-label" for="text-filling-color">
+                    <img class="text-filling-color-img" onclick="onChangeColorFilling(this)" src="images/paintbrush.png" alt="change filling color">
+                    <input class="text-filling-color" oninput="onChangeColorFilling(this)"  type="color" value="#000000">
+                </label>   
+
             </div>
             
             <div class="font-size-buttons">
