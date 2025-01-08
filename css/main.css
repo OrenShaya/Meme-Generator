@@ -99,9 +99,7 @@ canvas {
     .canvas-container {
         width: 300px;
         height: 300px;
-        padding: 5% 5%;
         display: flex;
-        margin-left: 20px;
     }
     canvas {
         width: 100%;
@@ -110,6 +108,9 @@ canvas {
     .meme-editor {
         display: grid;
         grid-auto-flow: row;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
     }
     .text-editor {
         justify-self: center;
