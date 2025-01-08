@@ -6,9 +6,24 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body onload="onInit()">
     <h1>Meme Generator</h1>
     
+    <div class="meme-editor">
+        
+        <div class="canvas-container">
+            <canvas> 
+            </canvas>
+        </div>
+        
+        <div class="text-editor">
+            <input type="text" placeholder="Add text here">
+        </div>
+    </div>
+
+    <div class="gallery">
+    </div>
+
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
