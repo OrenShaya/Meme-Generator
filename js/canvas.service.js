@@ -3,14 +3,17 @@
 let gElCanvas;
 let gCtx;
 let gCurrImg;
-let gFontOptions;
+let gTexts;
+let gCurrText;
 
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
     gCurrImg = ''
-    gFontOptions = {
+    gCurrText = 0
+    gTexts = [{
+        textIndex: gCurrText,
         text: '',
         size: 20,
         font: 'Impact',
@@ -22,23 +25,37 @@ function initCanvas() {
             y: 50,
         },
         grabbed: false
-    }
+    }]
 }
 
-function reRenderCanvasText() {        
-    gCtx.font = `${gFontOptions.size}px ${gFontOptions.font}`;
+function createNewText() {  
+    gTexts.push(structuredClone(gTexts[gCurrText]))
+    gCurrText += 1
+    gTexts[gCurrText].pos.x += 20
+    gTexts[gCurrText].pos.y += 20
+    gTexts[gCurrText].text = ''
+    gTexts[gCurrText].textIndex = gCurrText
+    renderAllText()
+}
+
+function renderAllText() {
+    gTexts.forEach(reRenderCanvasText);
+}
+
+function reRenderCanvasText(currText) {            
+    gCtx.font = `${currText.size}px ${currText.font}`;
     gCtx.textAlign = 'top'
     gCtx.textBaseline = 'center'
     
-    gCtx.strokeStyle = gFontOptions.strokeColor
-    gCtx.fillStyle = gFontOptions.fillColor
+    gCtx.strokeStyle = currText.strokeColor
+    gCtx.fillStyle = currText.fillColor
 
-    gCtx.fillText(gFontOptions.text, gFontOptions.pos.x, gFontOptions.pos.y);
-    gCtx.strokeText(gFontOptions.text, gFontOptions.pos.x, gFontOptions.pos.y);
+    gCtx.fillText(currText.text, currText.pos.x, currText.pos.y);
+    gCtx.strokeText(currText.text, currText.pos.x, currText.pos.y);
 }
 
 function renderCanvas() {
-    if (gCurrImg === '') return reRenderCanvasText()
+    if (gCurrImg === '') return renderAllText()
     const elImg = new Image();
     elImg.src = gCurrImg; 
     elImg.onload = () => {
@@ -48,12 +65,31 @@ function renderCanvas() {
         
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
         
-        reRenderCanvasText()
+        renderAllText()
     };
 }
 
+function getPos(ev) {
+    let pos
+    if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
+        ev.preventDefault()        
+        ev = ev.changedTouches[0] 
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    else {
+        pos = {
+            x: ev.offsetX,
+            y: ev.offsetY,
+        }
+    }
+    return pos
+}
+
 function didItClickedOnText(clickedPosX, clickedPosY) {
-    const { pos, text, size } = gFontOptions;
+    const { pos, text, size } = gTexts[gCurrText];
     
     const textWidth = gCtx.measureText(text).width
     const textTop = pos.y - size; 

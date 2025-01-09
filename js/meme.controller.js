@@ -1,37 +1,23 @@
 'use strict'
 
-function getPos(ev) {
-    let pos
-    if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
-        ev.preventDefault()        
-        ev = ev.changedTouches[0] 
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-        }
-    }
-    else {
-        pos = {
-            x: ev.offsetX,
-            y: ev.offsetY,
-        }
-    }
-    return pos
+function onAddText() {
+    console.log('Added text button')
+    createNewText()
 }
 
 function onMouseDown(event) {
     let pos = getPos(event)
     if (!didItClickedOnText(pos.x, pos.y)) return false
-    gFontOptions.grabbed = true
+    gTexts[gCurrText].grabbed = true
 }
 
 function onMouseUp() {
-    gFontOptions.grabbed = false
+    gTexts[gCurrText].grabbed = false
 }
 
 function onMouseMove(event) {
-    if (!gFontOptions.grabbed) return false
-    gFontOptions.pos = getPos(event)
+    if (!gTexts[gCurrText].grabbed) return false
+    gTexts[gCurrText].pos = getPos(event)
 
     renderCanvas()
 }
@@ -39,32 +25,32 @@ function onMouseMove(event) {
 function onChangeColorFilling(elTextFillColor) {
     document.querySelector('.text-filling-color').click()
 
-    gFontOptions.fillColor = elTextFillColor.value
+    gTexts[gCurrText].fillColor = elTextFillColor.value
     renderCanvas()
 }
 
 function onFontChange(elFont) {
-    gFontOptions.font = elFont.value
+    gTexts[gCurrText].font = elFont.value
     renderCanvas()
 }
 
 function onChangeColorBorder(elTextBorderColor) {
-    gFontOptions.strokeColor = elTextBorderColor.value
+    gTexts[gCurrText].strokeColor = elTextBorderColor.value
     renderCanvas()
 }
 
 function onMemeTextChange(elText) {
-    gFontOptions.text = elText.value;
+    gTexts[gCurrText].text = elText.value;
     renderCanvas()
 }
 
 function onFontSizeIncrease() {
-    gFontOptions.size += 1
+    gTexts[gCurrText].size += 1
     renderCanvas()
 }
 
 function onFontSizeDecrease() {
-    gFontOptions.size -= 1
+    gTexts[gCurrText].size -= 1
     renderCanvas()
 }
 
