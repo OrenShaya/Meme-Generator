@@ -2,8 +2,8 @@
 
 let gElCanvas;
 let gCtx;
-let gCurrImg
-let gFontOptions
+let gCurrImg;
+let gFontOptions;
 
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
@@ -16,12 +16,16 @@ function initCanvas() {
         font: 'Impact',
         fillColor: 'black',
         strokeColor: 'white',
+        pos: 
+        {
+            x: 30,
+            y: 50,
+        },
+        grabbed: false
     }
 }
 
-function reRenderCanvasText() {    
-    let x = 30; let y = 50;
-    
+function reRenderCanvasText() {        
     gCtx.font = `${gFontOptions.size}px ${gFontOptions.font}`;
     gCtx.textAlign = 'top'
     gCtx.textBaseline = 'center'
@@ -29,8 +33,8 @@ function reRenderCanvasText() {
     gCtx.strokeStyle = gFontOptions.strokeColor
     gCtx.fillStyle = gFontOptions.fillColor
 
-    gCtx.fillText(gFontOptions.text, x, y);
-    gCtx.strokeText(gFontOptions.text, x, y);
+    gCtx.fillText(gFontOptions.text, gFontOptions.pos.x, gFontOptions.pos.y);
+    gCtx.strokeText(gFontOptions.text, gFontOptions.pos.x, gFontOptions.pos.y);
 }
 
 function renderCanvas() {
@@ -46,4 +50,16 @@ function renderCanvas() {
         
         reRenderCanvasText()
     };
+}
+
+function didItClickedOnText(clickedPosX, clickedPosY) {
+    const { pos, text, size } = gFontOptions;
+    
+    const textWidth = gCtx.measureText(text).width
+    const textTop = pos.y - size; 
+
+    const withinX = (clickedPosX >= pos.x) && (clickedPosX <= (pos.x + textWidth))
+    const withinY = (clickedPosY >= textTop) && (clickedPosY <= pos.y)
+
+    return withinX && withinY;
 }

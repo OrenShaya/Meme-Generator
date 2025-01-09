@@ -1,5 +1,21 @@
 'use strict'
 
+function onMouseDown(event) {
+    if (!didItClickedOnText(event.offsetX, event.offsetY)) return false
+    gFontOptions.grabbed = true
+}
+
+function onMouseUp(event) {
+    gFontOptions.grabbed = false
+}
+
+function onMouseMove(event) {
+    if (!gFontOptions.grabbed) return false
+    gFontOptions.pos = { x: event.offsetX, y: event.offsetY };
+
+    renderCanvas()
+}
+
 function onChangeColorFilling(elTextFillColor) {
     document.querySelector('.text-filling-color').click()
 
