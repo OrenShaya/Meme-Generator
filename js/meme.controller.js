@@ -1,17 +1,37 @@
 'use strict'
 
+function getPos(ev) {
+    let pos
+    if (['touchstart', 'touchmove', 'touchend'].includes(ev.type)) {
+        ev.preventDefault()        
+        ev = ev.changedTouches[0] 
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    else {
+        pos = {
+            x: ev.offsetX,
+            y: ev.offsetY,
+        }
+    }
+    return pos
+}
+
 function onMouseDown(event) {
-    if (!didItClickedOnText(event.offsetX, event.offsetY)) return false
+    let pos = getPos(event)
+    if (!didItClickedOnText(pos.x, pos.y)) return false
     gFontOptions.grabbed = true
 }
 
-function onMouseUp(event) {
+function onMouseUp() {
     gFontOptions.grabbed = false
 }
 
 function onMouseMove(event) {
     if (!gFontOptions.grabbed) return false
-    gFontOptions.pos = { x: event.offsetX, y: event.offsetY };
+    gFontOptions.pos = getPos(event)
 
     renderCanvas()
 }

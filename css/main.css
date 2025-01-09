@@ -25,7 +25,6 @@ body {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     margin-left: 1em;
-    /* color: #0fc1d5; */
     color: #5088bd;
 }
 .gallery-button {
@@ -166,6 +165,20 @@ canvas {
         height: auto; 
         max-width: 340px;
         max-height: 340px;
+    }
+    .main-header {
+        gap: 2.5em;
+        position: relative;
+        display: flex;
+        border-radius: 15em;
+        margin: auto;
+        max-width: 360px;
+        font-size: 1.3125rem;
+    }
+    .header-title{
+        font-size: 1.5em;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
     }
 }
 
