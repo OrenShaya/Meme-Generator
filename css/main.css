@@ -9,6 +9,32 @@ body {
     background-color: var(--background-color);
     color: var(--text-main-color);
 }
+.main-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15em;
+    margin: auto;
+    max-width: 1250px;
+    font-size: 1.3125rem;
+    height: 73px;
+    background-image: linear-gradient(-86deg,#3a6186 0,#89253e 100%);
+}
+.header-title{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 1em;
+    /* color: #0fc1d5; */
+    color: #5088bd;
+}
+.gallery-button {
+    border-radius: 15em;
+    font-size: 1.2em;
+    margin-right: 3em;
+    background-color: #89253e;
+    color: #3a6186;
+}
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--min-img-size), 1fr));
@@ -23,6 +49,9 @@ body {
     height: auto; 
     max-width: 400px;
     max-height: 400px;
+}
+.hidden {
+    display: none !important;
 }
 .canvas-container {
     display: flex;
@@ -39,9 +68,10 @@ canvas {
 .meme-editor {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 2;
+    justify-content: center;
 }
 .text-editor {
+    min-width: 300px;
     max-width: 400px;
     display: flex;
     justify-content: center;
@@ -53,6 +83,11 @@ canvas {
     padding-top: 20px;
     flex-direction: column;
     background-color: var(--secondary-bg-color);
+}
+.text-input{
+    border-radius: 15em;
+    height: 2em;
+    padding-left: 1.5em;
 }
 .download-button {
     border-radius: 15em;

@@ -7,6 +7,11 @@ function onChangeColorFilling(elTextFillColor) {
     renderCanvas()
 }
 
+function onFontChange(elFont) {
+    gFontOptions.font = elFont.value
+    renderCanvas()
+}
+
 function onChangeColorBorder(elTextBorderColor) {
     gFontOptions.strokeColor = elTextBorderColor.value
     renderCanvas()
@@ -32,10 +37,3 @@ function onDownloadCanvas(elLink) {
     elLink.href = dataUrl
     elLink.download = 'Ma Meme'
 }
-
-// function onResize() {
-//     const elContainer = document.querySelector('.canvas-container')
-    
-//     gElCanvas.width = elContainer.offsetWidth
-//     gElCanvas.height = elContainer.offsetHeight
-// }

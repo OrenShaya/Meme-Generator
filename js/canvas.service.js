@@ -8,12 +8,11 @@ let gFontOptions
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    /* TODO: hide canvas until picture selected*/
 
     gCurrImg = ''
     gFontOptions = {
         text: '',
-        size: 14,
+        size: 20,
         font: 'Impact',
         fillColor: 'black',
         strokeColor: 'white',

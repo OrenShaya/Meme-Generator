@@ -14,6 +14,12 @@ function loadImages() {
 }
 
 function onImgClick(elImg) {
+    document.querySelector('.meme-editor').classList.remove('hidden')
+    initCanvas()
     gCurrImg = elImg.src
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function onGalleryClick() {
+    document.querySelector('.meme-editor').classList.add('hidden')
 }
