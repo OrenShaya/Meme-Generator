@@ -26,6 +26,7 @@ function onSavedClick() {
 function onSavedImgClick(elImg) {
     document.querySelector('.saved-gallery').classList.add('hidden')
     document.querySelector('.meme-editor').classList.remove('hidden')
+    document.querySelector('.gallery').classList.remove('hidden')
     
     const newTexts = JSON.parse(elImg.getAttribute('data-texts'))
     const ogImg = elImg.getAttribute('data-og-img')
