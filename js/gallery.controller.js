@@ -22,5 +22,6 @@ function onImgClick(elImg) {
 
 function onGalleryClick() {
     document.querySelector('.meme-editor').classList.add('hidden')
+    document.querySelector('.saved-gallery').classList.add('hidden')
     document.querySelector('.gallery').classList.remove('hidden')
 }
