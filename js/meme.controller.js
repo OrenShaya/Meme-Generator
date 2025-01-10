@@ -6,11 +6,13 @@ function onAddText() {
 }
 
 function onSwitchTextUp() {
+    if (gCurrText == 0) return
     changeCurrText(-1)
     document.querySelector('.text-input').value = gTexts[gCurrText].text
 }
 
 function onSwitchTextDown() {
+    if (gCurrText + 1 >= gTexts.length) return
     changeCurrText(+1)
     document.querySelector('.text-input').value = gTexts[gCurrText].text
 }
@@ -72,7 +74,13 @@ function onDownloadCanvas(elLink) {
 }
 
 function onSaveClick() {
+    
     const dataUrl = gElCanvas.toDataURL()
-    localStorage.setItem(SAVED_MEMES_KEY, JSON.stringify({'img data': dataUrl, 'texts': gTexts}))
+
+    let savedMemes = loadSavedMemes()
+    if (!savedMemes) savedMemes = []
+    savedMemes.push({'dirty img': dataUrl, 'clean img': gCurrImg, 'texts': gTexts})
+
+    localStorage.setItem(SAVED_MEMES_KEY, JSON.stringify(savedMemes))
     onSavedClick()
 }

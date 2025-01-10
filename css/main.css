@@ -51,13 +51,20 @@ body {
     max-height: 400px;
 }
 .saved-gallery {
-    place-self: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     
+    gap: 3em; 
+    text-align: center;
     padding: 5em;
     margin-top: 7em;
     
     background-color: var(--secondary-bg-color);
+}
+.saved-gallery > img {
+    min-width: 400px;
+    width: 100%; 
+    height: auto; 
 }
 .empty {
     max-width: 20em;
@@ -200,5 +207,19 @@ canvas {
         text-align: center;
         font-family: 'Times New Roman', Times, serif;
     }
+    .saved-gallery {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        
+        gap: 2em;
+        text-align: center;
+        padding: 2em;
+        margin-top: 2em;
+        
+        background-color: var(--secondary-bg-color);
+    }
+    .saved-gallery > img {
+        min-width: 300px; 
+    }    
 }
 
