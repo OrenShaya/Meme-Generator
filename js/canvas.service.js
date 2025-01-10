@@ -92,8 +92,19 @@ function changeCurrText(diff) {
     gCurrText += diff
 }
 
-function didItClickedOnText(clickedPosX, clickedPosY) {
-    const { pos, text, size } = gTexts[gCurrText];
+function isClickedAnyText(xClicked, yClicked) {
+    const textIndexClicked = gTexts.findIndex(text => {
+        return didItClickedOnText(xClicked, yClicked, text)
+    })
+    if (textIndexClicked != -1) {
+        gCurrText = textIndexClicked
+        return true
+    }
+    return false
+}
+
+function didItClickedOnText(clickedPosX, clickedPosY, currText) {
+    const { pos, text, size } = currText
     
     const textWidth = gCtx.measureText(text).width
     const textTop = pos.y - size; 
