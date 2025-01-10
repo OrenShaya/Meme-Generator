@@ -5,6 +5,7 @@ let gCtx;
 let gCurrImg;
 let gTexts;
 let gCurrText;
+const SAVED_MEMES_KEY = 'memes';
 
 function initCanvas() {
     gElCanvas = document.querySelector('canvas')
@@ -86,6 +87,11 @@ function getPos(ev) {
         }
     }
     return pos
+}
+
+function changeAllText(newTexts) {
+    gTexts = newTexts
+    gCurrText = 0
 }
 
 function changeCurrText(diff) {

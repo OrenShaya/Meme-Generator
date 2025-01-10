@@ -28,7 +28,7 @@ body {
     margin-left: 1em;
     color: #5088bd;
 }
-.gallery-button {
+.header-button {
     border-radius: 15em;
     font-size: 1.2em;
     margin-right: 3em;
@@ -49,6 +49,18 @@ body {
     height: auto; 
     max-width: 400px;
     max-height: 400px;
+}
+.saved-gallery {
+    place-self: center;
+    text-align: center;
+    
+    padding: 5em;
+    margin-top: 7em;
+    
+    background-color: var(--secondary-bg-color);
+}
+.empty {
+    max-width: 20em;
 }
 .hidden {
     display: none !important;
@@ -89,9 +101,16 @@ canvas {
     height: 2em;
     padding-left: 1.5em;
 }
-.download-button {
+.save-button {
+    padding: 0.6em;
     border-radius: 15em;
-    background-color: purple;
+    background-color: lightblue;
+}
+.download-button {
+    margin-right: 1em;
+    padding: 0.6em;
+    border-radius: 15em;
+    background-color: rgb(45, 0, 128);
 }
 .download {
     text-decoration: none;

@@ -70,3 +70,9 @@ function onDownloadCanvas(elLink) {
     elLink.href = dataUrl
     elLink.download = 'Ma Meme'
 }
+
+function onSaveClick() {
+    const dataUrl = gElCanvas.toDataURL()
+    localStorage.setItem(SAVED_MEMES_KEY, JSON.stringify({'img data': dataUrl, 'texts': gTexts}))
+    onSavedClick()
+}
