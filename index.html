@@ -24,11 +24,18 @@
         </div>
         
         <div class="text-editor">
+            
             <!-- Text input -->
             <input class="text-input" oninput="onMemeTextChange(this)" type="text" placeholder="Add text here">
 
-            <!-- Add text -->
-            <button class="add-text" onclick="onAddText()">+</button>
+            <div class="extra-text">
+                <!-- Add text -->
+                <button class="add-text" onclick="onAddText()">+</button>
+                <!-- Switch between texts -->
+                 <button class="switch-text up" onclick="onSwitchTextUp()">↑</button>
+                 <button class="switch-text down" onclick="onSwitchTextDown()">↓</button>
+            </div>
+
 
             <!-- Text colors -->
             <div class="text-colors">                

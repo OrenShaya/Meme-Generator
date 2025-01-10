@@ -30,7 +30,7 @@ function initCanvas() {
 
 function createNewText() {  
     gTexts.push(structuredClone(gTexts[gCurrText]))
-    gCurrText += 1
+    gCurrText++
     gTexts[gCurrText].pos.x += 20
     gTexts[gCurrText].pos.y += 20
     gTexts[gCurrText].text = ''
@@ -86,6 +86,10 @@ function getPos(ev) {
         }
     }
     return pos
+}
+
+function changeCurrText(diff) {
+    gCurrText += diff
 }
 
 function didItClickedOnText(clickedPosX, clickedPosY) {

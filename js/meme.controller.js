@@ -2,7 +2,24 @@
 
 function onAddText() {
     console.log('Added text button')
+    document.querySelector('.text-input').value = ''
     createNewText()
+}
+
+function onSwitchTextUp() {
+    changeCurrText(-1)
+    console.log(gTexts);
+    console.log(gTexts[gCurrText]);
+    console.log(gCurrText);
+    
+    document.querySelector('.text-input').value = gTexts[gCurrText].text
+
+}
+
+function onSwitchTextDown() {
+    changeCurrText(+1)
+    document.querySelector('.text-input').value = gTexts[gCurrText].text
+
 }
 
 function onMouseDown(event) {
