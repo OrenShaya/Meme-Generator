@@ -15,6 +15,7 @@ function loadImages() {
 
 function onImgClick(elImg) {
     document.querySelector('.meme-editor').classList.remove('hidden')
+    document.querySelector('.gallery').classList.add('hidden')
     initCanvas()
     gCurrImg = elImg.src
     renderCanvas()

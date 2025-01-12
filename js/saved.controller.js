@@ -10,6 +10,7 @@ function onSavedClick() {
     if (!savedMemes) {  // no memes saved D:
         elSaved.innerHTML = '<h2 class="empty-memes">Looks like you have not saved anything.... </h2>'
         elSaved.classList.add('empty')
+        elSaved.style.gridTemplateColumns = '1fr';
     }
     else {              // some memes :D
         elSaved.innerHTML = ''
@@ -19,6 +20,7 @@ function onSavedClick() {
             data-og-img="${meme['clean img']}"
             src="${meme['dirty img']}" alt="meme">`;
         });
+        elSaved.style.gridTemplateColumns = 'repeat(4, 1fr)';
         elSaved.classList.remove('empty')
     }
 }

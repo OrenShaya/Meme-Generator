@@ -4,6 +4,7 @@
     --secondary-bg-color: rgb(56, 59, 66);
     --max-images-per-row: 6;
     --min-img-size: 300px;
+    --canvas-size: 550px;
 }
 body {
     background-color: var(--background-color);
@@ -17,7 +18,6 @@ body {
     align-items: center;
     border-radius: 15em;
     margin: auto;
-    max-width: 1250px;
     font-size: 1.3125rem;
     height: 73px;
     background-image: linear-gradient(-86deg,#3a6186 0,#89253e 100%);
@@ -26,19 +26,21 @@ body {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     margin-left: 1em;
-    color: #5088bd;
+    color: #6cb7ff;
 }
 .header-button {
     border-radius: 15em;
     font-size: 1.2em;
     margin-right: 3em;
+    box-shadow: 2px 2px 4px 2px #161515;
     background-color: #89253e;
-    color: #3a6186;
+    color: navajowhite;
 }
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--min-img-size), 1fr));
     max-width: calc( var(--max-images-per-row) * var(--min-img-size) + var(--max-images-per-row) * 30px );
+    border-radius: 3.5em;
     gap: 30px;
     padding: 30px;
     margin-top: 20px;
@@ -49,6 +51,7 @@ body {
     height: auto; 
     max-width: 400px;
     max-height: 400px;
+    border-radius: 2em;
 }
 .saved-gallery {
     display: grid;
@@ -58,6 +61,7 @@ body {
     text-align: center;
     padding: 5em;
     margin-top: 7em;
+    border-radius: 3em;
     
     background-color: var(--secondary-bg-color);
 }
@@ -65,6 +69,10 @@ body {
     min-width: 400px;
     width: 100%; 
     height: auto; 
+    border-radius: 2em;
+}
+.empty-memes {
+    border-radius: 1em;
 }
 .empty {
     max-width: 20em;
@@ -75,14 +83,17 @@ body {
 .canvas-container {
     display: flex;
     justify-content: center;
-    width: 430px;
+    width: calc( var(--canvas-size) + 20px);
+    height: auto;
+    border-radius: 3em;
     background-color: var(--secondary-bg-color);
     margin: 20px;
     padding: 20px;
 }
 canvas {
-    width: 400px;
-    height: 400px;
+    border-radius: 2em;
+    width: var(--canvas-size);
+    height: var(--canvas-size);
 }
 .meme-editor {
     display: grid;
@@ -96,27 +107,73 @@ canvas {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 30px;
+    gap: 3.3em;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-top: 20px;
     flex-direction: column;
     background-color: var(--secondary-bg-color);
 }
+.extra-text > button {
+    padding: 0.3em 0.5em;
+    border-radius: 1em;
+    font-size: 1.5em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    background-color: #89253e;
+    color: navajowhite;
+    background-image: linear-gradient(-86deg,#3a6186 0,#89253e 80%);
+}
+.font-size-buttons > button {
+    padding: 0.3em 0.5em;
+    border-radius: 1em;
+    font-size: 1.5em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    background-color: #89253e;
+    color: navajowhite;
+    background-image: linear-gradient(-86deg,#3a6186 0,#89253e 80%);
+}
 .text-input{
+    font-size: 1em;
+    text-indent: 3em;
     border-radius: 15em;
-    height: 2em;
-    padding-left: 1.5em;
+    padding-bottom: 0.7em;
+    padding-top: 0.7em;
+    box-shadow: 2px 2px 7px 7px #1a1818;
+    color: navajowhite;
+    background-image: linear-gradient(-86deg,#3a6186 0,#89253e 100%);
+}
+.text-input::placeholder { /* Edge 12-18 */
+    color: navajowhite;
+}
+.font-picker {
+    font-size: 1em;
+    text-indent: 3em;
+    border-radius: 15em;
+    padding-bottom: 0.7em;
+    padding-top: 0.7em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    color: navajowhite;
+    background-image: linear-gradient(-86deg,#3a6186 0,#89253e 100%);
 }
 .save-button {
+    font-size: 1em;
     padding: 0.6em;
+    margin-bottom: 1.2em;
     border-radius: 15em;
-    background-color: lightblue;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    background-color: #6aa4b7;
 }
 .download-button {
+    font-size: 1em;
     margin-right: 1em;
+    margin-bottom: 1.2em;
     padding: 0.6em;
     border-radius: 15em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
     background-color: rgb(45, 0, 128);
 }
 .download {
@@ -124,10 +181,20 @@ canvas {
     color: #fff;
 }
 .text-filling-color-img {
-    width: 20px;
+    width: 2.5em;
+    margin-right: 2em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    border-radius: 1em;
+    background-image: url(images/pen.png);
+    width: 2.5em;
 }
 .text-border-color-img {
-    width: 20px;
+    width: 2.5em;
+    margin-right: 2em;
+    box-shadow: 2px 2px 7px 5px #1a1818;
+    border-radius: 1em;
+    background-image: url(images/pen.png);
+    width: 2.5em;
 }
 .text-filling-color {
     display: none;
