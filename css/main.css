@@ -62,7 +62,7 @@ body {
     padding: 5em;
     margin-top: 7em;
     border-radius: 3em;
-    
+
     background-color: var(--secondary-bg-color);
 }
 .saved-gallery > img {
@@ -112,6 +112,7 @@ canvas {
     margin-bottom: 20px;
     padding-top: 20px;
     flex-direction: column;
+    border-radius: 3em;
     background-color: var(--secondary-bg-color);
 }
 .extra-text > button {
